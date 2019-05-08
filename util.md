@@ -2,6 +2,22 @@
 
 收集日常工具类
 
+```js
+// 判断类型：Object.prototype.toString.call
+function isType (type) {
+  return function (obj) {
+    return Object.prototype.toString.call(obj).includes(type);
+  }
+}
+const types = ['String', 'Object', 'Array', 'Null', 'Undefined', 'Function', 'Number', 'Boolean']
+let fns = {}
+types.forEach(type => {
+  fns[`is${type}`] = isType(type)
+})
+const a = true
+console.log(fns.isString(a))
+```
+
 
 
 ```js
